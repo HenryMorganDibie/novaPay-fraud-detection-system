@@ -8,6 +8,11 @@ The final model — **Tuned CatBoost Classifier** — powers a real-time risk-sc
 
 ---
 
+### **Demo Screenshot**
+![Streamlit Demo Screenshot](Screenshot/demo_screenshot.JPG)
+
+---
+
 # 📁 Project Structure
 
 <pre lang="markdown">
@@ -335,11 +340,3 @@ Please follow PEP8 and include documentation updates.
 Released under the **MIT License**.
 
 ---
-
-If you want, I can now create:
-
-✅ A **professional banner image** for your repo
-✅ A **GIF walkthrough** of your Streamlit app
-✅ Auto-generated versions of your 3 reports (EDA, Feature Engineering, Modeling)
-
-Just tell me **“generate repo banner”**, **“generate GIF”**, or **“write the reports.”**
