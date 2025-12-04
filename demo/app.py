@@ -16,11 +16,9 @@ except FileNotFoundError:
 # Load the ORIGINAL CSV dataset (nova_pay_transactions.csv) to act as 'history' 
 # for accurate behavioral feature calculation, as the pickle file was missing 'timestamp'.
 try:
-    # 🚨 FIX 1: Corrected file path (forward slash) and filename typo ('transactions')
     history_df = pd.read_csv('data/nova_pay_transactions.csv')
     
     # Perform initial required cleaning/typing on the history data
-    # 🚨 FIX 2: Added errors='coerce' and format='mixed' to handle bad date/time values (like 25:61:00)
     history_df['timestamp'] = pd.to_datetime(
         history_df['timestamp'], 
         utc=True,
@@ -39,7 +37,6 @@ try:
     st.sidebar.success("Historical data loaded successfully.")
 
 except FileNotFoundError:
-    # Note: The error message here is also updated for the corrected file name
     st.error("Historical data file (data/nova_pay_transactions.csv) not found. Cannot calculate behavioral features.")
     st.stop()
     
@@ -50,7 +47,6 @@ GLOBAL_MEDIAN_AMOUNT = history_df['amount_usd'].median()
 # --- Feature Engineering Helper ---
 def create_demo_features(data_point, history_df):
     """Generates all necessary features for the single input transaction."""
-    # Create DataFrame from the new transaction input
     df_new = pd.DataFrame([data_point])
     
     # Ensure timestamp is a proper datetime object
@@ -62,7 +58,7 @@ def create_demo_features(data_point, history_df):
     df_new['is_weekend'] = df_new['txn_day_of_week'].apply(lambda x: 1 if x >= 5 else 0)
     df_new['txn_day_of_month'] = df_new['timestamp'].dt.day
     
-    current_timestamp = df_new['timestamp'].iloc[0] # The timestamp of the new transaction
+    current_timestamp = df_new['timestamp'].iloc[0] 
     current_amount_usd = df_new['amount_usd'].iloc[0]
     customer_id = df_new['customer_id'].iloc[0]
     
@@ -118,7 +114,6 @@ def create_demo_features(data_point, history_df):
     # Fill any missing columns with safe defaults for the model prediction
     for col in final_features:
         if col not in df_new.columns:
-            # Use 'Unknown' for categories, 0 or median for numerics
             if col in ['home_country', 'source_currency', 'dest_currency', 'channel', 'ip_country', 'kyc_tier', 'new_device', 'location_mismatch']:
                  df_new[col] = 'Unknown'
             else:
@@ -217,5 +212,4 @@ if st.sidebar.button("Predict Fraud Risk"):
         
     st.markdown("---")
     st.subheader("Engineered Features Used in Prediction")
-    # Transpose the dataframe for a cleaner display of a single row
     st.dataframe(X_predict.T)
