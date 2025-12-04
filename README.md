@@ -8,8 +8,8 @@ The final model — **Tuned CatBoost Classifier** — powers a real-time risk-sc
 
 ---
 
-### **Demo Screenshot**
-![Streamlit Demo Screenshot](Screenshot/demo_screenshot.JPG)
+### Demo Screenshot
+![Streamlit Demo Screenshot](screenshot/demo_screenshot.jpg)
 
 ---
 
