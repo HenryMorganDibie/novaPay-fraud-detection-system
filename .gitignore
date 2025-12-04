@@ -1,0 +1,36 @@
+# ----------------------
+# 1. Python Artifacts
+# ----------------------
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+# IDE and OS files
+.DS_Store
+Thumbs.db
+
+# ----------------------
+# 2. IDE/Editor Files (VS Code, Jupyter, etc.)
+# ----------------------
+.vscode/
+.idea/
+*.swp
+.ipynb_checkpoints/
+notebooks/catboost_info/
+
+# ----------------------
+# 3. Data Science / ML Artifacts
+# ----------------------
+# Model files (You are committing only the final, small model file(s) so we
+# explicitly IGNORE the intermediate ones you don't need.)
+# *.joblib # Only ignore if ALL models are too big. KEEPING them for now.
+
+# Large, intermediate data files (You may be committing some, but let's ignore the large ones)
+# We will explicitly UNTRACK the cleaned data files below.
+# *.pkl
+# *.csv
+
+# Logs and temporary files
+*.log
