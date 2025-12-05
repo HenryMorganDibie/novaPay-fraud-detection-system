@@ -225,8 +225,8 @@ Predict Probability → Apply Threshold → Output Fraud / Legit + Score
 ### **1. Clone the Repo**
 
 ```bash
-git clone https://github.com/HenryMorganDibie/fraud-detection-prototype.git
-cd fraud-detection-prototype
+git clone https://github.com/HenryMorganDibie/novaPay-fraud-detection-system.git
+cd novaPay-fraud-detection-system
 ```
 
 ### **2. Create Environment**
